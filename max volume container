@@ -1,0 +1,16 @@
+//C++ code solution class TC O(n)
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int i=0,j=height.size()-1,maxvol=0,vol,hei,wid;
+        while(j>=i){
+            hei=min(height[i],height[j]);
+            wid=j-i;
+            vol=hei*wid;
+            maxvol=max(maxvol,vol);
+            if(height[j]<=height[i]) {j--;}
+            else i++;
+        }
+        return maxvol;
+    }
+};
