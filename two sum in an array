@@ -1,0 +1,27 @@
+//C++ solution 
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        
+        int n=nums.size();
+        unordered_map<int,int> mp;
+        
+        vector<int> vec(2);
+        int req;
+        
+        for(int i=0;i<n;i++){
+            
+            req=target-nums[i];
+            if(mp.find(req)!=mp.end())
+                if(mp[req]!=i){
+                    vec[0]=i;
+                    vec[1]=mp[req];
+                    break;
+                }
+            mp[nums[i]]=i;
+            
+        }
+        return vec;
+        
+    }
+};
